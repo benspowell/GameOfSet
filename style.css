@@ -1,0 +1,40 @@
+html{
+  background-color: #adadad;
+}
+#cards{
+  text-align: center;
+  margin: 0 auto;
+  width: 1000px;
+}
+svg{width: 200px;
+padding:5px;
+}
+.st0{fill:#FFFFFF;stroke:#000000;stroke-width:10;stroke-miterlimit:10;}
+.st1{stroke-width:12;stroke-miterlimit:10;}
+.yellow .st1{stroke:#EAAE06;}
+.purple .st1{stroke:#961877;}
+.blue .st1{stroke:#04827E;}
+
+.yellow.solid .st1{fill:#EAAE06;}
+.purple.solid .st1{fill:#961877;}
+.blue.solid .st1{fill:#04827E;}
+
+.empty .st1{fill:#FFFFFF;}
+
+.dotted .st1{fill:url(#circles-6)}
+
+svg:hover{
+  width: 160px;
+  padding:25px;
+  animation: a .1s;
+}
+@keyframes a {
+  from{
+    width: 200px;
+    padding:5px;
+  }
+  to{
+    width: 160px;
+    padding:25px;
+  }
+}
