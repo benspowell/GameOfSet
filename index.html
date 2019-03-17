@@ -1,72 +1,111 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <style media="screen">
-      html{
-        text-align:center;
-        font-family: Montserrat, sans-serif;
-        background-color: #1c1c1c;
-      }
-      img{
-        width:40%;
-        margin-top:10%;
-      }
-      a{
-        display: inline-block;
-        padding: 3px 10px 8px 10px;
-        font-size:5vw;
-        font-weight: 600;
-        text-decoration: none;
-      }
-      a:hover {
-        border-radius: 10px;
-        background-color: white;
-        animation: button .8s;
-      }
-      #p{
-        animation: recolor 3s infinite;
-      }
-      #l{
-        color:#00a14b;
-        animation: recolor 3s infinite;
-        animation-delay: .75s;
-      }
-      #a{
-        color:#1c75bc;
-        animation: recolor 3s infinite;
-        animation-delay: 1.5s;
-      }
-      #y{
-        color:#f26522;
-        animation: recolor 3s infinite;
-        animation-delay: 2.25s;
-      }
-      a:hover #p,a:hover #l,a:hover #a,a:hover #y{
-        color:#1c1c1c;
-        animation: none;
-      }
-      @keyframes recolor {
-        0%{color:#f26522}
-        25%{color:#00a14b}
-        50%{color:#1c75bc}
-        100%{color:#f26522}
-      }
-      @keyframes button {
-        from{
-          background-color: #00000000;
+        html {
+            text-align: center;
+            font-family: Montserrat, sans-serif;
+            background-color: #1c1c1c;
         }
-        to{
-          background-color: white;
+
+        img {
+            width: 40%;
+            margin-top: 10%;
         }
-      }
+
+        a {
+            display: inline-block;
+            padding: 3px 10px 8px 10px;
+            font-size: 5vw;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        a:hover {
+            border-radius: 10px;
+            background-color: white;
+            animation: button .8s;
+        }
+
+        #p {
+            animation: recolor 3s infinite;
+        }
+
+        #l {
+            color: #00a14b;
+            animation: recolor 3s infinite;
+            animation-delay: .75s;
+        }
+
+        #a {
+            color: #1c75bc;
+            animation: recolor 3s infinite;
+            animation-delay: 1.5s;
+        }
+
+        #y {
+            color: #f26522;
+            animation: recolor 3s infinite;
+            animation-delay: 2.25s;
+        }
+
+        a:hover #p,
+        a:hover #l,
+        a:hover #a,
+        a:hover #y {
+            color: #1c1c1c;
+            animation: none;
+        }
+
+        @keyframes recolor {
+            0% {
+                color: #f26522
+            }
+
+            25% {
+                color: #00a14b
+            }
+
+            50% {
+                color: #1c75bc
+            }
+
+            100% {
+                color: #f26522
+            }
+        }
+
+        @keyframes button {
+            from {
+                background-color: #00000000;
+            }
+
+            to {
+                background-color: white;
+            }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:600" rel="stylesheet">
     <link rel="icon" href="favicon.ico">
     <title>Set Game</title>
-  </head>
-  <body>
-    <img src="setthegame.svg"><br>
-    <a href="play.html"><span id="p">p</span><span id="l">l</span><span id="a">a</span><span id="y">y</span> </a>
-  </body>
+</head>
+
+
+
+
+<body>
+    
+
+        <img src="setthegame.svg"><br>
+        <a href="play.html"><span id="p">p</span><span id="l">l</span><span id="a">a</span><span id="y">y</span> </a><br>
+        <a href="instruction.html"><span id="l">i</span><span id="a">n</span><span id="a">s</span><span id="y">t</span><span id="p">r</span><span id="y">u</span><span id="y">c</span><span id="p">t</span><span id="p">i</span><span id="l">o</span><span id="y">n</span></a> <br>
+        
+        
+        <a href="timer.html"><span id="p">timer</span></a>
+
+
+</body>
+
 </html>
