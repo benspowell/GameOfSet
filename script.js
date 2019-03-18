@@ -44,11 +44,12 @@ function setAttributes(el, attrs) {
 function printCard(card,cardID){
     var cardsDiv = document.getElementById("cards");
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    var cardclass = card[0]+" "+card[1];
+    var cardclass = card[0] + " " + card[1] + " " + card[2] + " " + card[3];
     svg.setAttribute("class",cardclass);
     svg.setAttribute("id",cardID);
     setAttributes(svg,{
       "version":"1.1",
+      // "onClick":"selectCard(this)",
       "xmlns":"http://www.w3.org/2000/svg",
       "xmlns:xlink":"http://www.w3.org/1999/xlink",
       "xmlns:a":"http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/",
@@ -230,13 +231,32 @@ function printCard(card,cardID){
     return card;
 }
 
-function selectCard(cardID){
-  selected.push(active[cardID]);
+function arrayRemove(arr, value) {
+   return arr.filter(function(ele){
+       return ele != value;
+   });
 }
 
-var active=[],selected=[];
+// function selectCard(card){
+//   // selected.push(active[cardID]);
+//   card.setAttribute("id","selected")
+// }
+
+
+var active=[];
+var selected=[];
 var deck = createDeck();
 shuffle(deck);
 for (var i = 0;i<12;i++){
   active[i] = printCard(deck.pop(),i);
 }
+$('svg').click(function(){
+  $(this).toggleClass("selected");
+  var cardID=$(this).attr("id");
+  if(!selected.includes(cardID)){selected.push(cardID);}
+  else {selected=arrayRemove(selected,cardID);}
+
+  if (selected.length==3){
+    // $("html").toggleClass("test");
+  }
+});

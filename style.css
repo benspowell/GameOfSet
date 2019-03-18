@@ -1,6 +1,9 @@
 html{
   background-color: #adadad;
 }
+.test{
+  background-color: red;
+}
 #cards{
   text-align: center;
   margin: 0 auto;
@@ -15,11 +18,13 @@ padding:5px;
 .purple .st1{stroke:#961877;}
 .blue .st1{stroke:#04827E;}
 
+.selected .st0{fill:#b8c3d6}
+
 .yellow.solid .st1{fill:#EAAE06;}
 .purple.solid .st1{fill:#961877;}
 .blue.solid .st1{fill:#04827E;}
 
-.empty .st1{fill:#FFFFFF;}
+.empty .st1{fill:#00000000;}
 
 .dotted .st1{fill:url(#circles-6)}
 
