@@ -9,6 +9,7 @@ function shuffle(a) {
     return a;
 }
 // creates a deck of 81 cards. attributes are controlled here
+
 function createDeck() {
     var p = 0;
     var cardArray = [];
@@ -19,7 +20,7 @@ function createDeck() {
     for (var i = 0; i < 81; i++) {
         cardArray[i] = [];
     }
-    
+
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
             for (var k = 0; k < 3; k++) {
@@ -32,12 +33,14 @@ function createDeck() {
     }
     return cardArray;
 }
+
 //sets a bunch of attributes so I don't have to keep calling setAttribute
 function setAttributes(el, attrs) {
     for (var key in attrs) {
         el.setAttribute(key, attrs[key]);
     }
 }
+
 /*
  * prints a single card (svg element) to the document in div#cards
  * also returns the card back
@@ -232,26 +235,21 @@ function printCard(card, cardID) {
     return card;
 }
 
+/*
+* remove an element from an array based on value.
+*/
 function arrayRemove(arr, value) {
     return arr.filter(function (ele) {
         return ele != value;
     });
 }
 
-// function selectCard(card){
-//   // selected.push(active[cardID]);
-//   card.setAttribute("id","selected")
-// }
-
-
-
+//check whether 3 attributes car compatible (all the same or all different)
 function attributes_compatible(a, b, c) {
-
     //    console.log("a: "+a+" b: "+b+" c: "+c);
     //    console.log((a === b && b === c) || (a !== b && a !== c && b !== c));
     return (a === b && b === c) || (a !== b && a !== c && b !== c);
 }
-
 
 function set_check(c1, c2, c3) {
     var result = true;
@@ -270,9 +268,6 @@ function set_check(c1, c2, c3) {
     return result;
 }
 
-
-
-
 function countSets(deck) {
     var count = 0;
     for (var i = 0; i < deck.length; i++) {
@@ -288,12 +283,6 @@ function countSets(deck) {
     }
 
 }
-
-
-
-
-
-
 
 function hint(active) {
 
@@ -323,7 +312,7 @@ var selected = [];
 var deck = createDeck();
 shuffle(deck);
 for (var i = 0; i < 12; i++) {
-    active[i] = printCard(deck.pop(), i);
+    active.push(printCard(deck.pop(), i));
 }
 $('svg').click(function () {
     $(this).toggleClass("selected");
@@ -335,11 +324,14 @@ $('svg').click(function () {
     }
 
     if (selected.length == 3) {
-        //     $("html").toggleClass("test");
         var pair_check = set_check(active[selected[0]], active[selected[1]], active[selected[2]]);
         if (pair_check == true) {
-            
-            //remove three element from deck 
+            $(".selected").remove();
+            selected=[];
+            for (var i = 0; i < 3; i++) {
+                active.push(printCard(deck.pop(), i));
+            }
+            //remove three element from deck
             alert("this is the correct set");
             var index_arr = [];
             for (var i = 0; i < 3; i++) {
@@ -347,16 +339,19 @@ $('svg').click(function () {
             }
             for (var i = 0; i < 3; i++) {
                 deck.splice(index_arr[i], 1);
-                active.splcie(selected[i],1);
+                active.splice(selected[i],1);
 /*         this statement is used to replace the card
                 reference website: https://stackoverflow.com/questions/6764961/change-an-image-with-onclick
-            document.getElementById(selected[i]).src = "url;  
+            document.getElementById(selected[i]).src = "url;
         */
             }
-            
+
 
         } else {
-            alert("NOOOOOO");
+            // alert("NOOOOOO");
+            $("html").toggleClass("test");
+            $("svg").removeClass("selected");
+            selected=[];
         }
     }
 });

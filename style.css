@@ -7,11 +7,10 @@ html{
 #cards{
   text-align: center;
   margin: 0 auto;
-  width: 1000px;
+  width: 70%;
+  max-width: 900px;
 }
-svg{width: 200px;
-padding:5px;
-}
+
 .st0{fill:#FFFFFF;stroke:#000000;stroke-width:10;stroke-miterlimit:10;}
 .st1{stroke-width:12;stroke-miterlimit:10;}
 .yellow .st1{stroke:#EAAE06;}
@@ -28,18 +27,23 @@ padding:5px;
 
 .dotted .st1{fill:url(#circles-6)}
 
+svg{
+  width: 22%;
+  padding: 1%;
+  margin: 0;
+}
 svg:hover{
-  width: 160px;
-  padding:25px;
+  width: 20%;
+  padding:2%;
   animation: a .1s;
 }
 @keyframes a {
   from{
-    width: 200px;
-    padding:5px;
+    width: 22%;
+    padding: 1%;
   }
   to{
-    width: 160px;
-    padding:25px;
+    width: 20%;
+    padding:2%;
   }
 }
