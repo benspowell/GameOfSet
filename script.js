@@ -53,7 +53,6 @@ function printCard(card, cardID) {
     svg.setAttribute("id", cardID);
     setAttributes(svg, {
         "version": "1.1",
-        // "onClick":"selectCard(this)",
         "xmlns": "http://www.w3.org/2000/svg",
         "xmlns:xlink": "http://www.w3.org/1999/xlink",
         "xmlns:a": "http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/",
@@ -305,16 +304,7 @@ function hint(active) {
 
 }
 
-
-var score = 0;
-var active = [];
-var selected = [];
-var deck = createDeck();
-shuffle(deck);
-for (var i = 0; i < 12; i++) {
-    active.push(printCard(deck.pop(), i));
-}
-$('svg').click(function () {
+function cardClick() {
     $(this).toggleClass("selected");
     var cardID = $(this).attr("id");
     //select vs deselect
@@ -353,4 +343,17 @@ $('svg').click(function () {
         }
         $("#score").text(score);
     }
+}
+
+var score = 0;
+var active = [];
+var selected = [];
+var deck = createDeck();
+shuffle(deck);
+for (var i = 0; i < 12; i++) {
+    active.push(printCard(deck.pop(), i));
+}
+$(document).ready(function(){
+  //$('svg').click(cardClick);
+  $(document).on("click","svg",cardClick);
 });
