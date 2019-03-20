@@ -306,7 +306,7 @@ function hint(active) {
 }
 
 
-
+var score = 0;
 var active = [];
 var selected = [];
 var deck = createDeck();
@@ -317,6 +317,7 @@ for (var i = 0; i < 12; i++) {
 $('svg').click(function () {
     $(this).toggleClass("selected");
     var cardID = $(this).attr("id");
+    //select vs deselect
     if (!selected.includes(cardID)) {
         selected.push(cardID);
     } else {
@@ -326,6 +327,7 @@ $('svg').click(function () {
     if (selected.length == 3) {
         var pair_check = set_check(active[selected[0]], active[selected[1]], active[selected[2]]);
         if (pair_check == true) {
+            score++;
             //remove cards from page
             $(".selected").remove();
             //remove cards from arrays
@@ -336,30 +338,19 @@ $('svg').click(function () {
             for (var i = 0; i < 3; i++) {
                 active.push(printCard(deck.pop(), i));
             }
+            //animation
             $("html").addClass("correct");
             setTimeout(function(){   $("html").removeClass("correct"); }, 3000);
-//             //remove three element from deck
-//             alert("this is the correct set");
-//             var index_arr = [];
-//             for (var i = 0; i < 3; i++) {
-//                 index_arr[i] = deck.indexOf(selected[i]);
-//             }
-//             for (var i = 0; i < 3; i++) {
-//                 deck.splice(index_arr[i], 1);
-//                 active.splice(selected[i],1);
-// /*         this statement is used to replace the card
-//                 reference website: https://stackoverflow.com/questions/6764961/change-an-image-with-onclick
-//             document.getElementById(selected[i]).src = "url;
-//         */
-//             }
-
-
         } else {
-            // alert("NOOOOOO");
+            score--;
+            //animation
             $("html").addClass("incorrect");
             setTimeout(function(){   $("html").removeClass("incorrect"); }, 3000);
+            //deselect
             $("svg").removeClass("selected");
             selected=[];
+
         }
+        $("#score").text(score);
     }
 });

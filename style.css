@@ -1,5 +1,6 @@
 html{
   background-color: #adadad;
+  font-family: sans-serif;
 }
 .correct{
   background-color: #adadad;
@@ -17,9 +18,17 @@ html{
   from  {background-color: green}
   to    {background-color: #adadad}
 }
+h2{
+  margin: 5px;
+  font-size: 25pt;
+  display: inline-block;
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  border: 3pt solid black;
+}
 #cards{
-  text-align: center;
-  margin: 0 auto;
+  float: right;
   width: 70%;
   max-width: 900px;
 }
