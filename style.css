@@ -1,8 +1,21 @@
 html{
   background-color: #adadad;
 }
-.test{
-  background-color: red;
+.correct{
+  background-color: #adadad;
+  animation: greenbg 2s;
+}
+.incorrect{
+  background-color: #adadad;
+  animation: redbg 2s;
+}
+@keyframes redbg {
+  from  {background-color: red}
+  to    {background-color: #adadad}
+}
+@keyframes greenbg {
+  from  {background-color: green}
+  to    {background-color: #adadad}
 }
 #cards{
   text-align: center;

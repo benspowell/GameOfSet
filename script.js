@@ -326,30 +326,38 @@ $('svg').click(function () {
     if (selected.length == 3) {
         var pair_check = set_check(active[selected[0]], active[selected[1]], active[selected[2]]);
         if (pair_check == true) {
+            //remove cards from page
             $(".selected").remove();
+            //remove cards from arrays
+            active=arrayRemove(active,selected[0]);
+            active=arrayRemove(active,selected[1]);
+            active=arrayRemove(active,selected[2]);
             selected=[];
             for (var i = 0; i < 3; i++) {
                 active.push(printCard(deck.pop(), i));
             }
-            //remove three element from deck
-            alert("this is the correct set");
-            var index_arr = [];
-            for (var i = 0; i < 3; i++) {
-                index_arr[i] = deck.indexOf(selected[i]);
-            }
-            for (var i = 0; i < 3; i++) {
-                deck.splice(index_arr[i], 1);
-                active.splice(selected[i],1);
-/*         this statement is used to replace the card
-                reference website: https://stackoverflow.com/questions/6764961/change-an-image-with-onclick
-            document.getElementById(selected[i]).src = "url;
-        */
-            }
+            $("html").addClass("correct");
+            setTimeout(function(){   $("html").removeClass("correct"); }, 3000);
+//             //remove three element from deck
+//             alert("this is the correct set");
+//             var index_arr = [];
+//             for (var i = 0; i < 3; i++) {
+//                 index_arr[i] = deck.indexOf(selected[i]);
+//             }
+//             for (var i = 0; i < 3; i++) {
+//                 deck.splice(index_arr[i], 1);
+//                 active.splice(selected[i],1);
+// /*         this statement is used to replace the card
+//                 reference website: https://stackoverflow.com/questions/6764961/change-an-image-with-onclick
+//             document.getElementById(selected[i]).src = "url;
+//         */
+//             }
 
 
         } else {
             // alert("NOOOOOO");
-            $("html").toggleClass("test");
+            $("html").addClass("incorrect");
+            setTimeout(function(){   $("html").removeClass("incorrect"); }, 3000);
             $("svg").removeClass("selected");
             selected=[];
         }
