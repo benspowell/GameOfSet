@@ -18,6 +18,9 @@ html{
   from  {background-color: green}
   to    {background-color: #adadad}
 }
+.buttons{
+  float: left;
+}
 h2{
   margin: 5px;
   font-size: 25pt;
@@ -40,6 +43,7 @@ h2{
 .blue .st1{stroke:#04827E;}
 
 .selected .st0{fill:#b8c3d6}
+.hint {animation: wiggle 2s}
 
 .yellow.solid .st1{fill:#EAAE06;}
 .purple.solid .st1{fill:#961877;}
@@ -58,6 +62,16 @@ svg:hover{
   width: 20%;
   padding:2%;
   animation: a .1s;
+}
+@keyframes wiggle {
+  0%{transform: rotate(0deg)}
+  /* 50%{transform: rotate(5deg)} */
+  100%{transform: rotate(360deg)}
+}
+@keyframes shadow {
+  0%{box-shadow: 0px 0px 0px -200px rgba(0,0,0,0.75);}
+  50%{box-shadow: 0px 0px 53px 1px rgba(0,0,0,0.75);}
+  100%{box-shadow: 0px 0px 0px -200px rgba(0,0,0,0.75);}
 }
 @keyframes a {
   from{

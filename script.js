@@ -283,7 +283,7 @@ function countSets(deck) {
 
 }
 
-function hint(active) {
+function hint() {
 
     var numberArray = [];
     var flag = true;
@@ -296,6 +296,12 @@ function hint(active) {
                         console.log(j);
                         console.log(k);
                         flag = false;
+                        $("#"+i).toggleClass("hint");
+                        $("#"+j).toggleClass("hint");
+                        $("#"+k).toggleClass("hint");
+                        setTimeout(function(){
+                          $("svg").removeClass("hint");
+                        },2000)
                     }
                 }
             }
@@ -321,9 +327,9 @@ function cardClick() {
             //remove cards from page
             $(".selected").remove();
             //remove cards from arrays
-            active=arrayRemove(active,selected[0]);
-            active=arrayRemove(active,selected[1]);
-            active=arrayRemove(active,selected[2]);
+            active.splice(selected[0],1);
+            active.splice(selected[1],1);
+            active.splice(selected[2],1);
             selected=[];
             for (var i = 0; i < 3; i++) {
                 active.push(printCard(deck.pop(), i));
@@ -341,7 +347,12 @@ function cardClick() {
             selected=[];
 
         }
+        //update score
         $("#score").text(score);
+        //rewrite id's
+        for (var i = 1; i < 13; i++) {
+            document.querySelector("svg:nth-child("+i+")").id=i-1;
+        }
     }
 }
 
@@ -354,6 +365,6 @@ for (var i = 0; i < 12; i++) {
     active.push(printCard(deck.pop(), i));
 }
 $(document).ready(function(){
-  //$('svg').click(cardClick);
+  //$('svg').click(cardClick)
   $(document).on("click","svg",cardClick);
 });
