@@ -327,6 +327,7 @@ function cardClick() {
             //remove cards from page
             $(".selected").remove();
             //remove cards from arrays
+            selected.sort(function(a, b){return b-a});
             active.splice(selected[0],1);
             active.splice(selected[1],1);
             active.splice(selected[2],1);
