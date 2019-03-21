@@ -1,6 +1,6 @@
 html{
   background-color: #adadad;
-  font-family: sans-serif;
+  font-family: 'Baloo Chettan', sans-serif;
 }
 .correct{
   background-color: #adadad;
@@ -20,19 +20,30 @@ html{
 }
 .buttons{
   float: left;
+  width:20%;
+}
+#hintButton{
+  cursor: pointer;
+}
+#hintButton:hover{
+  background-color: #b8c3d6;
+  animation: wiggle 1s;
 }
 h2{
+  text-transform: lowercase;
   margin: 5px;
   font-size: 25pt;
+  font-weight: 300;
   display: inline-block;
   background-color: white;
-  padding: 10px;
-  border-radius: 15px;
+  padding: 8pt 16pt;
+  border-radius: 10px;
   border: 3pt solid black;
 }
 #cards{
-  float: right;
+  float:right;
   width: 70%;
+  margin-right: 15%;
   max-width: 500pt;
 }
 
@@ -66,7 +77,7 @@ svg:hover{
 @keyframes wiggle {
   0%{transform: rotate(0deg)}
   /* 50%{transform: rotate(5deg)} */
-  100%{transform: rotate(180deg)}
+  100%{transform: rotate(360deg)}
 }
 @keyframes shadow {
   0%{box-shadow: 0px 0px 0px -200px rgba(0,0,0,0.75);}
