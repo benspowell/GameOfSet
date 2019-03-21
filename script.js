@@ -284,13 +284,12 @@ function countSets(deck) {
 }
 
 function hint() {
-
     var numberArray = [];
     var flag = true;
     for (var i = 0; i < active.length && flag; i++) {
         for (var j = 0; j < active.length && flag; j++) {
             for (var k = 0; k < active.length && flag; k++) {
-                if (deck[i] !== deck[j] && deck[j] !== deck[k] && deck[i] !== deck[k]) {
+                if (i !== j && j !== k && i !== k) {
                     if (set_check(active[i], active[j], active[k])) {
                         console.log(i);
                         console.log(j);
@@ -307,7 +306,33 @@ function hint() {
             }
         }
     }
+}
+function anySets(someCards){
+  var flag = false;
+  for (var i = 0; i < someCards.length && !flag; i++) {
+      for (var j = 0; j < someCards.length && !flag; j++) {
+          for (var k = 0; k < someCards.length && !flag; k++) {
+              if (i !== j && j !== k && i !== k) {
+                  if (set_check(someCards[i], someCards[j], someCards[k])) {
+                    flag=true;
+                  }
+              }
+          }
+      }
+  }
+  return flag;
+}
 
+function reshuffle(){
+  while(active.length>0){
+    deck.push(active.pop());
+  }
+  selected=[];
+  $("svg").remove();
+  shuffle(deck);
+  for (var i = 0; i < 12; i++) {
+      active.push(printCard(deck.pop(), i));
+  }
 }
 
 function cardClick() {
@@ -353,6 +378,13 @@ function cardClick() {
         //rewrite id's
         for (var i = 1; i < 13; i++) {
             document.querySelector("svg:nth-child("+i+")").id=i-1;
+        }
+        if(!anySets(active.concat(deck))){
+          $("body").prepend("<h1>you win!</h1>");
+        }
+        while(!anySets(active)){
+          reshuffle();
+          $("body").prepend("<p>reshuffled.</p>");
         }
     }
 }
