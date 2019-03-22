@@ -21,6 +21,7 @@ html{
 .buttons{
   float: left;
   width:20%;
+  text-align: center;
 }
 #hintButton{
   cursor: pointer;
@@ -38,7 +39,6 @@ h2{
   background-color: white;
   padding: 8pt 16pt;
   border-radius: 10px;
-
 }
 #cards{
   float:right;
@@ -82,13 +82,13 @@ button:hover{
 button:focus{
   box-shadow: 0;
 }
-h2:nth-child(3n+1){
+h2:nth-child(3n+2){
     border: 3pt solid #FFD000;
 }
-h2:nth-child(3n+2){
+h2:nth-child(3n+3){
     border: 3pt solid #FF3333;
 }
-h2:nth-child(3n+3){
+h2:nth-child(3n+4){
     border: 3pt solid #334B99;
 }
 #help, #help a{

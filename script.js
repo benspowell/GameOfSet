@@ -8,8 +8,8 @@ function shuffle(a) {
     }
     return a;
 }
-// creates a deck of 81 cards. attributes are controlled here
 
+// creates a deck of 81 cards. attributes are controlled here
 function createDeck() {
     var p = 0;
     var cardArray = [];
@@ -437,6 +437,7 @@ function getNumber(){
  * print the cards + player buttons
  */
 function getNames(){
+  $(".buttons").prepend("<img src=\"logo_small.svg\" alt=\"set logo\">")
   var pname;
   for (var i =0;i<numPlayers;i++){
     pname=$("#"+i).val();
