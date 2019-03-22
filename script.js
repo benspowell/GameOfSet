@@ -389,15 +389,35 @@ function cardClick() {
     }
 }
 
-var score = 0;
-var active = [];
-var selected = [];
-var deck = createDeck();
-shuffle(deck);
-for (var i = 0; i < 12; i++) {
-    active.push(printCard(deck.pop(), i));
+function getNumber(){
+  numPlayers=$("#numPlayers").val();
+  $("form").remove();
+  $("body").prepend("<form>");
+  for (var i =0;i<numPlayers;i++){
+    $("form").append("<label>player "+i+"'s name:</label>");
+    $("form").append("<input type=\"text\" id="+i+">");
+  }
+  $("form").append("<button type=\"button\" onclick=\"getNames()\">play!</button></form>")
 }
+function getNames(){
+  var pname;
+  for (var i =0;i<numPlayers;i++){
+    pname=$("#"+i).val();
+    players[i]={name: pname, score: 0};
+    $(".buttons").append("<h2 class=\"playerButton\">"+pname+": 0</h2><br>");
+  }
+  $("form").remove();
+  $(".buttons").append("<h2> <a id=\"help\" href=\"instructions.html\">help</a> </h2>");
+  loadCards();
+}
+function loadCards(){
+  for (var i = 0; i < 12; i++) {
+      active.push(printCard(deck.pop(), i));
+  }
+}
+
+var score = 0, active = [], selected = [], deck = createDeck(),players=[], numPlayers;
+shuffle(deck);
 $(document).ready(function(){
-  //$('svg').click(cardClick)
   $(document).on("click","svg",cardClick);
 });

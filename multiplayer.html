@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
     <title>Set Game</title>
   </head>
   <body>
-    <h2>Score: <span id="score"> </span> </h1>
-    <div id="cards">
 
-    </div>
+    <form>
+      <label>number of players:</label>
+      <input type="number" id="numPlayers" value="0">
+      <button type="button" onclick="getNumber()">next</button>
+    </form>
+
+    <div class="buttons"></div>
+    <div id="cards"></div>
     <script type="text/javascript" src="script.js">
-
     </script>
   </body>
 </html>

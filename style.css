@@ -46,6 +46,52 @@ h2{
   margin-right: 15%;
   max-width: 500pt;
 }
+form{
+  width:50%;
+  padding:30pt;
+  background-color: white;
+  border-radius: 10pt;
+  display: block;
+  margin: 10% auto;
+  border: 3pt solid #1875e0;
+  box-shadow: 5px 5px 0px 0px #b657db;
+}
+label,input,button{
+  display: block;
+  margin: 10pt;
+  font-size: 20pt;
+  font-family: 'Baloo Chettan', sans-serif;
+}
+input:focus, button:focus{
+  outline: 0;
+}
+input,button{
+  padding:7pt;
+  border-radius: 10pt;
+  border: 3pt solid #1875e0;
+  box-shadow: 5px 5px 0px 0px #b657db;
+}
+button{
+  background-color: #e3eaed;
+}
+button:hover{
+  background-color: #d2dadd;
+  border: 3pt solid #b657db;
+  box-shadow: 5px 5px 0px 0px #1875e0;
+}
+button:focus{
+  box-shadow: 0;
+}
+#help{
+  cursor: help;
+}
+.buttons a{
+  text-decoration: none;
+  color: black;
+}
+.buttons h2{
+  cursor: default;
+}
 
 .st0{fill:#FFFFFF;stroke:#000000;stroke-width:10;stroke-miterlimit:10;}
 .st1{stroke-width:12;stroke-miterlimit:10;}
@@ -54,7 +100,7 @@ h2{
 .blue .st1{stroke:#04827E;}
 
 .selected .st0{fill:#b8c3d6}
-.hint {animation: wiggle 2s}
+.hint {animation: wiggle 1s}
 
 .yellow.solid .st1{fill:#EAAE06;}
 .purple.solid .st1{fill:#961877;}
@@ -77,8 +123,9 @@ svg:hover{
 }
 @keyframes wiggle {
   0%{transform: rotate(0deg)}
-  /* 50%{transform: rotate(5deg)} */
-  100%{transform: rotate(360deg)}
+  25%{transform: rotate(10deg)}
+  75%{transform: rotate(-10deg)}
+  100%{transform: rotate(0deg)}
 }
 @keyframes shadow {
   0%{box-shadow: 0px 0px 0px -200px rgba(0,0,0,0.75);}
