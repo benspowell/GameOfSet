@@ -345,7 +345,7 @@ function hint() {
                         $("#"+k).toggleClass("hint");
                         setTimeout(function(){
                           $("svg").removeClass("hint");
-                        },2000)
+                        },500)
                     }
                 }
             }
@@ -476,7 +476,7 @@ function getNames(){
   for (var i =0;i<numPlayers;i++){
     pname=$("#"+i).val();
     players[i]={name: pname, score: 0};
-    $(".buttons").append("<h2 class=\"playerButton\" id="+pname+" onclick=\"\">"+pname+": 0</h2><br>");
+    $(".buttons").append("<h2 class=\"playerButton\" id="+pname+" onclick=\"\">"+pname+": 0</h2>");
   }
   $("form").remove();
   $(".buttons").append("<h2 id=\"help\" > <a href=\"instructions.html\">help</a> </h2><h2 id=\"quit\"> <a href=\"index.html\">quit</a> </h2>");
