@@ -42,8 +42,13 @@ function setAttributes(el, attrs) {
 }
 
 /*
- * prints a single card (svg element) to the document in div#cards
- * also returns the card back
+ * prints a single card (svg element) to the document in div#cards.
+ *
+ * also returns the card back.
+ *
+ * this function was written by creating a few of the card shapes in
+ * adobe illustrator, exporting them to html-based svg elements, and
+ * deconstructing them to build them programmatically.
  */
 function printCard(card, cardID) {
     var cardsDiv = document.getElementById("cards");
@@ -243,13 +248,14 @@ function arrayRemove(arr, value) {
     });
 }
 
-//check whether 3 attributes car compatible (all the same or all different)
+// check whether 3 attributes ar compatible (all the same or all different)
 function attributes_compatible(a, b, c) {
     //    console.log("a: "+a+" b: "+b+" c: "+c);
     //    console.log((a === b && b === c) || (a !== b && a !== c && b !== c));
     return (a === b && b === c) || (a !== b && a !== c && b !== c);
 }
 
+// check if 3 cards make a set
 function set_check(c1, c2, c3) {
     var result = true;
     if (!attributes_compatible(c1[0], c2[0], c3[0])) {
@@ -267,6 +273,7 @@ function set_check(c1, c2, c3) {
     return result;
 }
 
+//not used
 function countSets(deck) {
     var count = 0;
     for (var i = 0; i < deck.length; i++) {
@@ -283,6 +290,10 @@ function countSets(deck) {
 
 }
 
+/*
+ * puts the hint class on 3 of the cards in the active deck to trigger
+ * an animation
+ */
 function hint() {
     var numberArray = [];
     var flag = true;
@@ -307,6 +318,11 @@ function hint() {
         }
     }
 }
+
+/*
+ * returns a boolean: "are there any sets in the array someCards?".
+ * used to see if we need to reshuffle the cards.
+ */
 function anySets(someCards){
   var flag = false;
   for (var i = 0; i < someCards.length && !flag; i++) {
@@ -323,6 +339,10 @@ function anySets(someCards){
   return flag;
 }
 
+/*
+ * reshuffle cards by combining active & deck,
+ * shuffling deck, reprinting 12 cards
+ */
 function reshuffle(){
   while(active.length>0){
     deck.push(active.pop());
@@ -335,6 +355,13 @@ function reshuffle(){
   }
 }
 
+/*
+ * handle a card click:
+ * - select/deselect a card
+ * - check for set if 3 cards are selected.
+ * - handle set/not set cases by triggering animation, and rearranging
+ *   cards if necessary
+ */
 function cardClick() {
     $(this).toggleClass("selected");
     var cardID = $(this).attr("id");
@@ -389,6 +416,10 @@ function cardClick() {
     }
 }
 
+/*
+ * for multiplayer mode.
+ * get the number of players from the form input, and then print the next form
+ */
 function getNumber(){
   numPlayers=$("#numPlayers").val();
   $("form").remove();
@@ -399,17 +430,25 @@ function getNumber(){
   }
   $("form").append("<button type=\"button\" onclick=\"getNames()\">play!</button></form>")
 }
+
+/*
+ * for multiplayer mode.
+ * get the names of players from the form input, and then
+ * print the cards + player buttons
+ */
 function getNames(){
   var pname;
   for (var i =0;i<numPlayers;i++){
     pname=$("#"+i).val();
     players[i]={name: pname, score: 0};
-    $(".buttons").append("<h2 class=\"playerButton\">"+pname+": 0</h2><br>");
+    $(".buttons").append("<h2 class=\"playerButton\" id="+pname+" onclick=\"\">"+pname+": 0</h2><br>");
   }
   $("form").remove();
-  $(".buttons").append("<h2> <a id=\"help\" href=\"instructions.html\">help</a> </h2>");
+  $(".buttons").append("<h2 id=\"help\" > <a href=\"instructions.html\">help</a> </h2><h2 id=\"quit\"> <a href=\"index.html\">quit</a> </h2>");
   loadCards();
 }
+
+//print 12 cards to the document
 function loadCards(){
   for (var i = 0; i < 12; i++) {
       active.push(printCard(deck.pop(), i));

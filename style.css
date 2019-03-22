@@ -82,15 +82,29 @@ button:hover{
 button:focus{
   box-shadow: 0;
 }
-#help{
+#help, #help a{
   cursor: help;
+}
+#help:hover{
+  background-color: #b8c3d6;
 }
 .buttons a{
   text-decoration: none;
   color: black;
 }
+
 .buttons h2{
   cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.playerButton:hover, #quit:hover{
+  background-color: #b8c3d6;
 }
 
 .st0{fill:#FFFFFF;stroke:#000000;stroke-width:10;stroke-miterlimit:10;}
@@ -98,16 +112,12 @@ button:focus{
 .yellow .st1{stroke:#EAAE06;}
 .purple .st1{stroke:#961877;}
 .blue .st1{stroke:#04827E;}
-
 .selected .st0{fill:#b8c3d6}
 .hint {animation: wiggle 1s}
-
 .yellow.solid .st1{fill:#EAAE06;}
 .purple.solid .st1{fill:#961877;}
 .blue.solid .st1{fill:#04827E;}
-
 .empty .st1{fill:#00000000;}
-
 .dotted .st1{fill:url(#circles-6)}
 
 svg{
@@ -117,8 +127,9 @@ svg{
   cursor: crosshair;
 }
 svg:hover{
-  width: 20%;
-  padding:2%;
+  transform: scale(0.9);
+  /* width: 20%;
+  padding:2%; */
   animation: a .1s;
 }
 @keyframes wiggle {
@@ -134,11 +145,9 @@ svg:hover{
 }
 @keyframes a {
   from{
-    width: 22%;
-    padding: 1%;
+    transform: scale(1);
   }
   to{
-    width: 20%;
-    padding:2%;
+    transform: scale(0.9);
   }
 }
