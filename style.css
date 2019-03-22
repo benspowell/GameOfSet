@@ -127,7 +127,10 @@ h2:nth-child(3n+4){
 .purple.solid .st1{fill:#FF3333;}
 .blue.solid .st1{fill:#334B99;}
 .empty .st1{fill:#00000000;}
-.dotted .st1{fill:url(#circles-6)}
+
+.yellow.dotted .st1{fill:url(#circles-yellow)}
+.blue.dotted .st1{fill:url(#circles-blue)}
+.purple.dotted .st1{fill:url(#circles-red)}
 
 svg{
   width: 22%;

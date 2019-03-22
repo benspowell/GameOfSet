@@ -69,23 +69,57 @@ function printCard(card, cardID) {
     });
     var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
     svg.appendChild(defs);
-    var pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
-    setAttributes(pattern, {
-        "id": "circles-6",
+    var pattern1 = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
+    setAttributes(pattern1, {
+        "id": "circles-red",
         "patternUnits": "userSpaceOnUse",
         "width": "10",
         "height": "10"
     });
-    defs.appendChild(pattern);
-    var image = document.createElementNS("http://www.w3.org/2000/svg", "image");
-    image.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScgLz4KICA8Y2lyY2xlIGN4PSczLjUnIGN5PSczLjUnIHI9JzMuNScgZmlsbD0nYmxhY2snLz4KPC9zdmc+Cg==")
-    setAttributes(image, {
+    defs.appendChild(pattern1);
+    var image1 = document.createElementNS("http://www.w3.org/2000/svg", "image");
+    image1.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FF3333' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")
+    setAttributes(image1, {
         "x": "0",
         "y": "0",
+        "width": "25",
+        "height": "25"
+    });
+    pattern1.appendChild(image1);
+    var pattern2 = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
+    setAttributes(pattern2, {
+        "id": "circles-blue",
+        "patternUnits": "userSpaceOnUse",
         "width": "10",
         "height": "10"
     });
-    pattern.appendChild(image);
+    defs.appendChild(pattern2);
+    var image2 = document.createElementNS("http://www.w3.org/2000/svg", "image");
+    image2.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23334B99' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")
+    setAttributes(image2, {
+        "x": "0",
+        "y": "0",
+        "width": "25",
+        "height": "25"
+    });
+    pattern2.appendChild(image2);
+    var pattern3 = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
+    setAttributes(pattern3, {
+        "id": "circles-yellow",
+        "patternUnits": "userSpaceOnUse",
+        "width": "10",
+        "height": "10"
+    });
+    defs.appendChild(pattern3);
+    var image3 = document.createElementNS("http://www.w3.org/2000/svg", "image");
+    image3.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FFD000' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")
+    setAttributes(image3, {
+        "x": "0",
+        "y": "0",
+        "width": "25",
+        "height": "25"
+    });
+    pattern3.appendChild(image3);
     var cardBorder = document.createElementNS("http://www.w3.org/2000/svg", "path");
     setAttributes(cardBorder, {
         "class": "st0",
