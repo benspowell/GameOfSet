@@ -409,7 +409,11 @@ function cardClick() {
     if (selected.length == 3) {
         var pair_check = set_check(active[selected[0]], active[selected[1]], active[selected[2]]);
         if (pair_check == true) {
-            score++;
+            if (numPlayers===1){score++;}
+            else{
+              players[currentPlayer].score++;
+              $(".playerButton#"+currentPlayer).text(players[currentPlayer].name+": "+players[currentPlayer].score);
+            }
             //remove cards from page
             $(".selected").remove();
             //remove cards from arrays
@@ -425,15 +429,14 @@ function cardClick() {
             $("html").addClass("correct");
             setTimeout(function(){   $("html").removeClass("correct"); }, 3000);
         } else {
-            score--;
             //animation
             $("html").addClass("incorrect");
             setTimeout(function(){   $("html").removeClass("incorrect"); }, 3000);
             //deselect
             $("svg").removeClass("selected");
             selected=[];
-
         }
+        $(".playerButton").removeClass("currentPlayer");
         //update score
         $("#score").text(score);
         //rewrite id's
@@ -459,7 +462,7 @@ function getNumber(){
   $("form").remove();
   $("body").prepend("<form>");
   for (var i =0;i<numPlayers;i++){
-    $("form").append("<label>player "+i+"'s name:</label>");
+    $("form").append("<label>player "+(i+1)+"'s name:</label>");
     $("form").append("<input type=\"text\" id="+i+">");
   }
   $("form").append("<button type=\"button\" onclick=\"getNames()\">play!</button></form>")
@@ -476,11 +479,17 @@ function getNames(){
   for (var i =0;i<numPlayers;i++){
     pname=$("#"+i).val();
     players[i]={name: pname, score: 0};
-    $(".buttons").append("<h2 class=\"playerButton\" id="+pname+" onclick=\"\">"+pname+": 0</h2>");
+    $(".buttons").append("<h2 class=\"playerButton\" id="+i+" onclick=\"selectPlayer(this.id)\">"+pname+": 0</h2>");
   }
   $("form").remove();
   $(".buttons").append("<h2 id=\"help\" > <a href=\"instructions.html\">help</a> </h2><h2 id=\"quit\"> <a href=\"index.html\">quit</a> </h2>");
   loadCards();
+}
+
+function selectPlayer(playerID){
+  currentPlayer=playerID;
+  $(".playerButton").removeClass("currentPlayer");
+  $(".playerButton#"+playerID).toggleClass("currentPlayer");
 }
 
 //print 12 cards to the document
@@ -490,7 +499,7 @@ function loadCards(){
   }
 }
 
-var score = 0, active = [], selected = [], deck = createDeck(),players=[], numPlayers;
+var score = 0, active = [], selected = [], deck = createDeck(),players=[], numPlayers, currentPlayer;
 shuffle(deck);
 $(document).ready(function(){
   $(document).on("click","svg",cardClick);

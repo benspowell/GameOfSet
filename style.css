@@ -59,8 +59,8 @@ form{
   border-radius: 10pt;
   display: block;
   margin: 10% auto;
-  border: 3pt solid #1875e0;
-  box-shadow: 5px 5px 0px 0px #b657db;
+  border: 3pt solid #FF3333;
+  box-shadow: 5px 5px 0px 0px #FFD000;
 }
 label,input,button{
   display: block;
@@ -74,16 +74,20 @@ input:focus, button:focus{
 input,button{
   padding:7pt;
   border-radius: 10pt;
-  border: 3pt solid #1875e0;
-  box-shadow: 5px 5px 0px 0px #b657db;
+  border: 3pt solid #FF3333;
+  box-shadow: 5px 5px 0px 0px #FFD000;
 }
 button{
   background-color: #e3eaed;
 }
+.playerButton.currentPlayer{
+  background-color: #1c1c1c;
+  color:white;
+}
 button:hover{
   background-color: #999999;
-  border: 3pt solid #b657db;
-  box-shadow: 5px 5px 0px 0px #1875e0;
+  border: 3pt solid #FFD000;
+  box-shadow: 5px 5px 0px 0px #FF3333;
 }
 button:focus{
   box-shadow: 0;

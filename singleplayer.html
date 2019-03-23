@@ -10,7 +10,7 @@
   <body>
     <div class="buttons">
       <img src="logo_small.svg" alt="set logo">
-      <h2>Score: <span id="score"> </span> </h2>
+      <h2>Score: <span id="score">0</span> </h2>
       <h2 onclick="hint()" id="hintButton">Hint</h2>
       <h2 id="help" > <a href="instructions.html">help</a> </h2>
       <h2 id="quit"> <a href="index.html">quit</a> </h2>
@@ -22,6 +22,7 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript">
       loadCards();
+      numPlayers=1;
     </script>
   </body>
 </html>
