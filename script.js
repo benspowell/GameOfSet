@@ -470,7 +470,7 @@ function getNames(){
     $(".buttons").append("<h2 class=\"playerButton\" id="+i+" onclick=\"selectPlayer(this.id)\">"+pname+": 0</h2>");
   }
   $("form").remove();
-  $(".buttons").append("<h2 id=\"help\" > <a href=\"instructions.html\">help</a> </h2><h2 id=\"quit\"> <a href=\"index.html\">quit</a> </h2>");
+  $(".buttons").append("<h2 id=\"quit\"> <a href=\"index.html\">quit</a> </h2>");
   loadCards();
 }
 
