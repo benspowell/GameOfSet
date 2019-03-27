@@ -133,7 +133,7 @@ h2:nth-child(3n+4){border: 3pt solid #334B99}
 .yellow.solid .st1{fill:#FFD000;}
 .purple.solid .st1{fill:#FF3333;}
 .blue.solid .st1{fill:#334B99;}
-.empty .st1{fill:#00000000;}
+.empty .st1{fill:#ffffff00;}
 
 .yellow.dotted .st1{fill:url(#circles-yellow)}
 .blue.dotted .st1{fill:url(#circles-blue)}
