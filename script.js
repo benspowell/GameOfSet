@@ -1,4 +1,6 @@
-// shuffles an array
+/*
+ * 1. shuffles an array
+ */ 
 function shuffle(a) {
     for (var i = a.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -9,7 +11,9 @@ function shuffle(a) {
     return a;
 }
 
-// creates a deck of 81 cards. attributes are controlled here
+/*
+ * 2. creates a deck of 81 cards. attributes are controlled here
+ */
 function createDeck() {
     var p = 0;
     var cardArray = [];
@@ -34,7 +38,9 @@ function createDeck() {
     return cardArray;
 }
 
-//sets a bunch of attributes so I don't have to keep calling setAttribute
+/*
+ * 3. sets a bunch of attributes so I don't have to keep calling setAttribute
+ */
 function setAttributes(el, attrs) {
     for (var key in attrs) {
         el.setAttribute(key, attrs[key]);
@@ -42,7 +48,7 @@ function setAttributes(el, attrs) {
 }
 
 /*
- * prints a single card (svg element) to the document in div#cards.
+ * 4. prints a single card (svg element) to the document in div#cards.
  *
  * also returns the card back.
  *
@@ -274,22 +280,24 @@ function printCard(card, cardID) {
 }
 
 /*
-* remove an element from an array based on value.
-*/
+ * 5. remove an element from an array based on value.
+ */
 function arrayRemove(arr, value) {
     return arr.filter(function (ele) {
         return ele != value;
     });
 }
 
-// check whether 3 attributes ar compatible (all the same or all different)
+/*
+ * 6. check whether 3 attributes ar compatible (all the same or all different)
+ */
 function attributes_compatible(a, b, c) {
-    //    console.log("a: "+a+" b: "+b+" c: "+c);
-    //    console.log((a === b && b === c) || (a !== b && a !== c && b !== c));
     return (a === b && b === c) || (a !== b && a !== c && b !== c);
 }
 
-// check if 3 cards make a set
+/*
+ * 7. check if 3 cards make a set
+ */
 function set_check(c1, c2, c3) {
     var result = true;
     if (!attributes_compatible(c1[0], c2[0], c3[0])) {
@@ -307,26 +315,9 @@ function set_check(c1, c2, c3) {
     return result;
 }
 
-//not used
-function countSets(deck) {
-    var count = 0;
-    for (var i = 0; i < deck.length; i++) {
-        for (var j = 0; j < deck.length; j++) {
-            for (var k = 0; k < deck.length; k++) {
-                if (deck[i] !== deck[j] && deck[j] !== deck[k] && deck[i] !== deck[k]) {
-                    if (set_check(deck[i], deck[j], deck[k])) {
-                        return [deck[i], deck[j], deck[k]];
-                    }
-                }
-            }
-        }
-    }
-
-}
 
 /*
- * puts the hint class on 3 of the cards in the active deck to trigger
- * an animation
+ * 8. puts the hint class on 3 of the cards in the active deck to trigger an animation
  */
 function hint() {
     var numberArray = [];
@@ -354,7 +345,7 @@ function hint() {
 }
 
 /*
- * returns a boolean: "are there any sets in the array someCards?".
+ * 9. returns a boolean: "are there any sets in the array someCards?".
  * used to see if we need to reshuffle the cards.
  */
 function anySets(someCards){
@@ -374,8 +365,7 @@ function anySets(someCards){
 }
 
 /*
- * reshuffle cards by combining active & deck,
- * shuffling deck, reprinting 12 cards
+ * 10. reshuffle cards by combining active & deck, shuffling deck, reprinting 12 cards
  */
 function reshuffle(){
   while(active.length>0){
@@ -390,7 +380,7 @@ function reshuffle(){
 }
 
 /*
- * handle a card click:
+ * 11. handle a card click:
  * - select/deselect a card
  * - check for set if 3 cards are selected.
  * - handle set/not set cases by triggering animation, and rearranging
@@ -454,8 +444,7 @@ function cardClick() {
 }
 
 /*
- * for multiplayer mode.
- * get the number of players from the form input, and then print the next form
+ * 12. for multiplayer mode. get the number of players from the form input, and then print the next form
  */
 function getNumber(){
   numPlayers=$("#numPlayers").val();
@@ -469,8 +458,7 @@ function getNumber(){
 }
 
 /*
- * for multiplayer mode.
- * get the names of players from the form input, and then
+ * 13. for multiplayer mode, get the names of players from the form input, and then
  * print the cards + player buttons
  */
 function getNames(){
@@ -486,18 +474,24 @@ function getNames(){
   loadCards();
 }
 
+/*
+ * 14. choose player to assign score
+ */
 function selectPlayer(playerID){
   currentPlayer=playerID;
   $(".playerButton").removeClass("currentPlayer");
   $(".playerButton#"+playerID).toggleClass("currentPlayer");
 }
 
-//print 12 cards to the document
+/*
+ * 15. print 12 cards to the document
+ */
 function loadCards(){
   for (var i = 0; i < 12; i++) {
       active.push(printCard(deck.pop(), i));
   }
 }
+
 
 var score = 0, active = [], selected = [], deck = createDeck(),players=[], numPlayers, currentPlayer;
 shuffle(deck);
