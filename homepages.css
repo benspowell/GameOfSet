@@ -33,7 +33,7 @@ a:hover {
     background-color: white;
     animation: button .8s;
 }
-a#play h1:hover{
+a#play:hover h1{
   color:#1c1c1c;
 }
 span {
