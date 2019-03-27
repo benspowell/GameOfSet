@@ -433,12 +433,14 @@ function cardClick() {
         for (var i = 1; i < 13; i++) {
             document.querySelector("svg:nth-child("+i+")").id=i-1;
         }
-        if(!anySets(active.concat(deck))){
-          $("body").prepend("<h1>you win!</h1>");
+        if(!anySets(active.concat(deck)) || deck.length < 12){
+          //$("body").prepend("<h1>you win!</h1>");
+	  window.location.href = "win.html";
+
         }
         while(!anySets(active)){
           reshuffle();
-          $("body").prepend("<p>reshuffled.</p>");
+          //$("body").prepend("<p>reshuffled.</p>");
         }
     }
 }
